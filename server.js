@@ -2,7 +2,15 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    'https://peaceful-puffpuff-f4807c.netlify.app',
+    'http://localhost:3000',
+    'http://127.0.0.1:5500'
+  ]
+}));
+
 app.use(express.json());
 
 app.post('/api/chat', async (req, res) => {
